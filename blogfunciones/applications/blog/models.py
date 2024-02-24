@@ -6,7 +6,7 @@ class Categoria(models.Model):
     id = models.AutoField(primary_key=True)
     nombre = models.CharField('nombre de la categoria', max_length=50,null=False,blank=False)
     estado = models.BooleanField('categoria activada/categoria no activada',default=True)
-    fecha_cracion = models.DateField('fecha de creacion', auto_now=False, auto_now_add=True)
+    fecha_creacion = models.DateField('fecha de creacion', auto_now=False, auto_now_add=True)
 
 
     class Meta:
@@ -27,8 +27,7 @@ class Autor(models.Model):
     web = models.URLField('web', max_length=300,null=True,blank=True)
     correo = models.EmailField('correo electronico', max_length=254,blank=False,null=False)
     estado = models.BooleanField('autor activo/autor no activo')
-    fecha_cracion = models.DateField('fecha de creacion', auto_now=False, auto_now_add=True)
-
+    fecha_creacion = models.DateField('fecha de creacion', auto_now=False, auto_now_add=True)
 
 
     class Meta:

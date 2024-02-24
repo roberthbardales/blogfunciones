@@ -35,6 +35,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # localapps
     'applications.blog',
+    # apps de terceros
+    'import_export',
+
 ]
 
 MIDDLEWARE = [
