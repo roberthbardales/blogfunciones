@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Categoria,Autor
+from .models import Categoria,Autor,Post
 from import_export import resources
 from import_export.admin import ImportExportModelAdmin
 
@@ -32,6 +32,7 @@ class CategoriaAdmin(ImportExportModelAdmin,admin.ModelAdmin):
 
 admin.site.register(Categoria,CategoriaAdmin)
 admin.site.register(Autor,AutorAdmin)
-# admin.site.register(Categoria)
+admin.site.register(Post)
+# admin.site.register(Autor,AutorAdmin)
 # admin.site.register(Autor)
 

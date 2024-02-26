@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'applications.blog',
     # apps de terceros
     'import_export',
+    'ckeditor',
 
 ]
 
