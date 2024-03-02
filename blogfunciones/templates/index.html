@@ -3,8 +3,6 @@
 {% load static %}
 
 {% block content %}
-
-
 <header>
     <div class="overlay">
         <div class="container">
@@ -15,7 +13,7 @@
                         {% block titulo_principal %}
                             Bienvenido al Blog
                         {% endblock titulo_principal %}
-                            </h1>
+                        </h1>
                     </div>
                 </div>
             </div>
@@ -23,33 +21,58 @@
     </div>
 </header>
 
+<div class="container">
+    <div class="row py-3">
+        <div class="col-md-12 search">
+            <form action="" method="get">
+                <div id="custom-search-input">
+                    <div class="input-group col-md-12">
+                        <input type="text"class="form-control" id="buscar" name="buscar">
+                        <span class="input-group-list">
+                                <button type="submit" class="btn btn-success">Buscar</button>
+                        </span>
+
+                    </div>
+
+                </div>
+            </form>
+        </div>
+
+
+    </div>
+</div>
 
 <div class="carousel-item active">
     <img class="d-block w-100"  src="{% block imagen %}{% static 'img/home-bg.jpg' %}{% endblock imagen %}"  alt="Firste slid">
     <div class="carousel-caption d-none d-md-block">
-    </div>
+</div>
 
+<!-- {% block contenido_new %} -->
 
 <div class="container px-4 py-4 px-lg-5">
     <div class="row gx-4 gx-lg-5 justify-content-center">
         <div class="col-md-10 col-lg-8 col-xl-7">
             <!-- Post preview-->
+            {% if contexto_post %}
+            {% for a in contexto_post %}
             <div class="post-preview">
-                <a href="post.html">
-                    <h2 class="post-title">Man must explore, and this is exploration at its greatest</h2>
-                    <h3 class="post-subtitle">Problems look mighty small from 150 miles up</h3>
+                <a href="{% url 'blog_app:detalle_post' a.slug %}">
+                    <h2 class="post-title">{{a.titulo}}</h2>
+                    <h3 class="post-subtitle">{{a.descripcion}}</h3>
                 </a>
                 <p class="post-meta">
-                    Posted by
-                    <a href="#!">Start Bootstrap</a>
-                    on September 24, 2023
+                   <strong>{{a.autor}}</strong>
+                    {{a.fecha_creacion}}
                 </p>
+                <hr class="my-4" />
             </div>
-            <!-- Divider-->
-            <hr class="my-4" />
-            <!-- Pager-->
-            <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div>
+            {% endfor %}
+            {% else %}
+            <h1 class="display-1">no hay posts registrados</h1>
+            {% endif %}
         </div>
     </div>
 </div>
+<!-- {% endblock contenido_new %} -->
+
 {% endblock content %}

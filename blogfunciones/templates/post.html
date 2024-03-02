@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+{{detalle_post.titulo}}
+{% endblock title %}
+
+<img class="d-block w-100"  src=""  alt="Firste slid">
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="">
+            <h1 class="text-center py-4">{{detalle_post.titulo}}</h1>
+        </div>
+        <div class="">
+            <img  class="mx-auto d-block"  src="{{detalle_post.imagen}}"  alt="Firste slid">
+        </div>
+
+            <div class="text-justify">
+            <p>
+                {{detalle_post.contenido | safe}}
+            </p>
+            </div>
+            <div class="post-preview">
+                <h4 class="post-subtitle">Categoria: {{detalle_post.categoria}}</h4>
+                <p class="post-meta">
+                   <strong>{{detalle_post.autor}}</strong>
+                    {{detalle_post.fecha_creacion}}
+                </p>
+                <hr class="my-4" />
+            </div>
+    </div>
+</div>
+
+
+{% endblock content %}
